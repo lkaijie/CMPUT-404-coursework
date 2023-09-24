@@ -21,6 +21,8 @@ PORT = 8080
 buffer_size = 2048
 request = b"GET / HTTP/1.1\nHost: www.google.com\n\n"
 
+
+
 def get():
 
     s = create_tcp_socket()    
