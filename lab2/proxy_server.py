@@ -1,4 +1,6 @@
 import socket
+from threading import Thread
+
 
 SERVER_IP = "127.0.0.1"
 SERVER_PORT = 8080
@@ -61,11 +63,22 @@ def start_server():
         connection, address = s.accept()
         handle_connection(connection, address)
         
-
+def start_threaded_server():
+    with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
+        s.bind((SERVER_IP, SERVER_PORT))
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s.listen(2)
+        
+        while True:
+            conn, addr = s.accept()
+            thread = Thread(target=handle_connection, args=(conn, addr))
+            thread.run()  
+        
 
 
 def main():
-    start_server()
+    # start_server()
+    start_threaded_server()
     
     
 if __name__ == "__main__":
