@@ -6,7 +6,7 @@ def create_tcp_socket():
     print('Creating socket')
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    except (socket.error, msg):
+    except socket.error as msg:
         print(f'Failed to create socket. Error code: {str(msg[0])} , Error message : {msg[1]}')
         sys.exit()
     print('Socket created successfully')
@@ -65,8 +65,8 @@ def main():
                  break
             full_data += data
         print(full_data)
-        with open ("google.html", "wb") as f:
-            f.write(full_data)
+        # with open ("google.html", "wb") as f:
+        #     f.write(full_data)
         print("Done")
     except Exception as e:
         print(e)

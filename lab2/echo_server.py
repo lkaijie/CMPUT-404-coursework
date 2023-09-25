@@ -21,13 +21,14 @@ def main():
         #continuously listen for connections
         while True:
             conn, addr = s.accept()
-            print(s.accept())
+            # print(s.accept()) # this will break when i add it fomr some reason(not echoed back)
             print("Connected by", addr)
             print("Connected by", conn)
             
             #recieve data, wait a bit, then send it back
             full_data = conn.recv(BUFFER_SIZE)
             time.sleep(0.5)
+            print(full_data)
             conn.sendall(full_data)
             conn.close()
 
