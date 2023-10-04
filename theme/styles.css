@@ -1,0 +1,8 @@
+html, body {
+    margin: 0;
+    border: 0;
+    {% comment %} font-size: 100%; {% endcomment %}
+    font-size: 1000px
+    background-color: #000000;
+    color: #ffffff;
+  }
