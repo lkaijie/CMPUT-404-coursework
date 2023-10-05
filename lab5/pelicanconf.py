@@ -1,6 +1,6 @@
 AUTHOR = 'Danger Doggo'
 SITENAME = 'TUYU FAN SITE'
-SITEURL = ''
+SITEURL = 'CMPUT-404-coursework/'
 
 PATH = 'content'
 
